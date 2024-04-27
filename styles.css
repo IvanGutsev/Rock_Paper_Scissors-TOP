@@ -2,10 +2,33 @@ body {
     background-color: rgb(22, 18, 24);
 }
 
-.btn-container {
+.container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 95vh;
+    margin-top: 35vh;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    text-align: center;
+}
+.score-container {
+    min-width: 225px;
+    text-align: start;
+}
+
+button {
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(212, 175, 246);
+    transition-property: background-color;
+    transition-property: color;
+    transition-duration: 150ms;
+    transition-delay: 50ms;
+}
+
+button:hover {
+    background-color: rgb(129, 91, 164);
+    color: #fff;
 }
