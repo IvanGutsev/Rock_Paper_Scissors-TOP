@@ -80,6 +80,7 @@ let computerChoice = getComputerChoice();
 rockBtn.addEventListener("click", function() {
 	playerSelection = "rock";
 	displayResult(playerSelection, computerChoice);
+	computerChoice = getComputerChoice();
 });
 
 scissorsBtn.addEventListener("click", function() {
