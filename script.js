@@ -3,6 +3,8 @@ const scissorsBtn = document.querySelector("#scissors");
 const paperBtn = document.querySelector("#paper");
 const resultContainer = document.querySelector(".results");
 const scoreContainer = document.querySelector(".score-container");
+const main_container = document.querySelector(".container");
+const body = document.querySelector("body");
 
 let player_score = 0;
 let computer_score = 0;
@@ -105,6 +107,40 @@ const displayResult = (playerSelection, computerChoice) => {
 	resultContainer.appendChild(div);
 
 	alert(result);
+
+	if (player_score == 5) {
+		displayFinalResult("You win!");
+	}
+
+	if (computer_score == 5) {
+		displayFinalResult("You lose!");
+	}
+}
+
+const displayFinalResult = (string) => {
+	main_container.style.display = "none";
+	const container = document.createElement("main");
+	const result = document.createElement("div");
+	const resetBtn = document.createElement("button");
+	resetBtn.textContent = "Reset";
+	result.textContent = string;
+	container.classList.add("final-result");
+	body.appendChild(container);
+	container.appendChild(result);
+	container.appendChild(resetBtn);
+
+	resetBtn.addEventListener("click", function() {
+		container.style.display = "none";
+		main_container.style.display = "flex";
+		computer_score = 0;
+		computerScoreDiv.textContent = "Computer: " + computer_score;	
+		player_score = 0;
+		playerScoreDiv.textContent = "You: " + player_score;
+
+		while (resultContainer.firstChild) { 
+			resultContainer.removeChild(resultContainer.firstChild); 
+		}
+	})
 }
 
 let playerSelection = "";

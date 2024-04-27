@@ -23,12 +23,21 @@ button {
     padding: 5px 10px;
     background-color: rgb(212, 175, 246);
     transition-property: background-color;
-    transition-property: color;
     transition-duration: 150ms;
     transition-delay: 50ms;
 }
 
 button:hover {
     background-color: rgb(129, 91, 164);
+    color: #fff;
+}
+
+.final-result {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
     color: #fff;
 }
