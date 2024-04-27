@@ -1,27 +1,28 @@
+const rockBtn = document.querySelector("#rock");
+const scissorsBtn = document.querySelector("#scissors");
+const paperBtn = document.querySelector("#paper");
+
 let getComputerChoice = () => 
 {	
-	let computer_choice = "not_decided_yet";
 	let number = Math.floor(Math.random() * 3);
 
 	if (number === 0)
 	{
-		computer_choice = "Rock";
+		return "rock";
 	}
 	else if (number === 1) 
 	{
-		computer_choice = "Paper";
+		return "paper";
 	}
 	else if (number === 2) 
 	{
-		computer_choice = "Scissors";
+		return "scissors";
 	}
-	
-	return computer_choice;
 }
 
 let rpcRound = (playerSelection, computerSelection) => 
 {
-	if (playerSelection === "rock")
+	if (playerSelection == "rock")
 	{
 		if (computerSelection === "rock")
 		{
@@ -68,20 +69,28 @@ let rpcRound = (playerSelection, computerSelection) =>
 	}
 }
 
-let playGame = () =>
-{
-	for (let i = 0; i < 5; i++)
-	{
-		console.log("round " + i);
-
-
-		let comp_choice = getComputerChoice().toLowerCase();
-		let user_choice = prompt("Please choose between rock paper or scissors: ").toLowerCase();
-
-		let result = rpcRound(user_choice, comp_choice);
-		alert(result);
-		console.log(" ");
-	}
+const displayResult = (playerSelection, computerChoice) => {
+	const result = rpcRound(playerSelection, computerChoice);
+	alert(result);
 }
 
-playGame();
+let playerSelection = "";
+let computerChoice = getComputerChoice();
+
+rockBtn.addEventListener("click", function() {
+	playerSelection = "rock";
+	displayResult(playerSelection, computerChoice);
+});
+
+scissorsBtn.addEventListener("click", function() {
+	playerSelection = 'scissors';
+	displayResult(playerSelection, computerChoice);
+});
+
+paperBtn.addEventListener("click", function() {
+	playerSelection = 'paper';
+	displayResult(playerSelection, computerChoice);
+});
+
+
+
