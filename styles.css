@@ -17,6 +17,15 @@ body {
     color: #fff;
     text-align: center;
 }
+
+.container {
+    position: fixed;
+}
+
+.results {
+    margin-top: 10px;
+}
+
 .score-container {
     min-width: 500px;
     text-align: start;
@@ -64,4 +73,8 @@ button:hover {
         width: 300px;
         gap: 20px;
     }
+}
+
+.results {
+    height: 100px;
 }
